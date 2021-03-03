@@ -1,3 +1,5 @@
+
+
 <div class="list-wrap">
 <% @lists.each do |list| %>
   <div class="list-box">
@@ -5,11 +7,15 @@
     <div class="list-comment">
       <span class="list-body"><%= list.body %></span>
       <span class="sentiment-score">本文の感情分析スコア<%= list.score %></span>
-      <span><%= link_to 'URL', list.name %></span>
+      <span><%= link_to 'wikipedia', list.name %></span>
       <span class="list-title"><%=link_to list.title, todolist_path(list.id) %></span>
       <% list.tags.each do |tag| %>
         <span class="label"><%= tag.name %></span>
       <% end %>
+      <%= @url = Entity.get_data(list.body) %>
+      <% @url.each do |url| %>
+        <%= link_to url['name'], url['metadata']['wikipedia_url'] %>
+      <%end %>
     </div>
   </div>
 <% end %>

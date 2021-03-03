@@ -56,7 +56,7 @@ module Entity
       if (error = response_body['error']).present?
         raise error['message']
       else
-        response_body['entities'][0]['metadata']
+        response_body['entities']
       end
     end
   end

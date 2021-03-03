@@ -6,9 +6,13 @@ class TodolistsController < ApplicationController
   def create
     list = List.new(list_params)
     list.score = Language.get_data(list_params[:body])
-    url = Entity.get_data(list_params[:body])
-    logger.debug(url)
-    list.name = url["wikipedia_url"]
+    # @url = Entity.get_data(list_params[:body])
+    # byebug
+    logger.debug(@url)
+    # url.each_with_index do |i, url|
+    #   list.name.create(url[i]['metadata']['wikipedia_url'])
+    # end
+    # list.name = url[0]['metadata']["wikipedia_url"]
     list.save
     tags = Vision.get_image_data(list.image)
     tags.each do |tag|
