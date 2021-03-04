@@ -5,7 +5,11 @@ class TodolistsController < ApplicationController
 
   def create
     list = List.new(list_params)
-    list.score = Language.get_data(list_params[:body])
+    language = Language.get_data(list_params[:body])
+    logger.debug(language)
+    list.score = language['score']
+    list.magnitude = language['magnitude']
+
     # url = Entity.get_data(list_params[:body])
     # byebug
     # logger.debug(url)

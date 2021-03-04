@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 2021_03_04_093205) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_id"
-    t.decimal "score", precision: 5, scale: 3
+    t.float "score"
     t.string "name"
-    t.decimal "magnitude"
+    t.float "magnitude"
   end
 
   create_table "tags", force: :cascade do |t|
