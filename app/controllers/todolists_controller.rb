@@ -6,9 +6,9 @@ class TodolistsController < ApplicationController
   def create
     list = List.new(list_params)
     list.score = Language.get_data(list_params[:body])
-    # @url = Entity.get_data(list_params[:body])
+    # url = Entity.get_data(list_params[:body])
     # byebug
-    logger.debug(@url)
+    # logger.debug(url)
     # url.each_with_index do |i, url|
     #   list.name.create(url[i]['metadata']['wikipedia_url'])
     # end
